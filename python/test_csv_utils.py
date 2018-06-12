@@ -7,4 +7,4 @@ pd = get_pandas('kleinverbruikamsterdam2018.csv')
 print(pd.columns.tolist())
 
 #print de eerste 100 entries van de kolom 'MEETVERANTWOORDELIJKE'
-print(pd['MEETVERANTWOORDELIJKE'][0:100])
+print(get_float(pd['%SJV laag tarief'][0:100]))
