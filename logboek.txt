@@ -12,14 +12,14 @@ Joey:   - omschrijving - duur - datum
 
 
 ## TODO week 2
-- doelstellingen week 1 concreet maken
-- gemiddelde gebruik van gas en elektra per jaar (2009 - 2018) verzamelen in bewerkbare data map
-- knmi gemiddelde temperatuur (jaar) of koude winters verzamelen
-- bijv. jaar 2018 gemiddelde gebruik per postcode
+- doelstellingen week 1 concreet maken (Abel)
+- gemiddelde gebruik van gas en elektra per jaar (2009 - 2018) verzamelen in bewerkbare data map (Abel)
+- knmi gemiddelde temperatuur (jaar) of koude winters verzamelen en bewerken (missing values weg laten?)
+- bijv. jaar 2018 gemiddelde gebruik per postcode (Lauren)
 - omschrijving van data goed bekijken (leveringsrichting)
 - moeten we de sjv normaliseren zodat leveringsrichting op 100% komt
 - zoeken naar twee representaties per catagorie data verwerking:
-        Univariate non-graphical
-        Multivariate non-graphical
-        Univariate graphical
-        Multivariate graphical
+        Univariate non-graphical ()
+        Multivariate non-graphical ()
+        Univariate graphical ()
+        Multivariate graphical (1 Lauren, 1 Abel)
