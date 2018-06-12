@@ -7,4 +7,6 @@ pd = get_pandas('kleinverbruikamsterdam2018.csv')
 print(pd.columns.tolist())
 
 #print de eerste 100 entries van de kolom 'MEETVERANTWOORDELIJKE'
-print(get_float(pd['%SJV laag tarief'][0:100]))
+print(len(get_clean_data(pd['%SJV laag tarief'][0:100])))
+
+print(len(get_clean_data(pd['NETBEHEERDER'])))
