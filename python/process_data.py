@@ -11,12 +11,12 @@ def process_average_yearly_gas_elektra():
     electra = {}
     for year in years:
         # save description of gas usage
-        gas_pd = get_pandas('GAS' + year + '.csv') 
+        gas_pd = get_pandas('GAS' + '_' + year + '.csv') 
         gas_averaged_sjv = gas_pd['SJV'] / gas_pd['Aantal Aansluitingen']
         print(gas_averaged_sjv.mean(), gas_averaged_sjv.std())
         gas[year] = [gas_averaged_sjv.mean(), gas_averaged_sjv.std()]
     
-        el_pd = get_pandas('ELK' + year + '.csv') 
+        el_pd = get_pandas('ELK' + '_' + year + '.csv') 
         el_averaged_sjv = el_pd['SJV'] / el_pd['Aantal Aansluitingen']
         print(el_averaged_sjv.mean(), el_averaged_sjv.std())
         electra[year] = [el_averaged_sjv.mean(), el_averaged_sjv.std()]
