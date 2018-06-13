@@ -1,0 +1,22 @@
+1. 
+The artibutes are classified in the pdf file
+
+2. 
+Cleaned preprocessed data is contained in the Data/processed folder
+
+3. 
+We checked data on missing values, which we did not found in the relevant columns
+We splitted gas and electrical entries into two different .csv files
+This was done for all the years we want to analyse
+Some utility functions are written to load csv data from the Data dir easily to pandas data
+
+4.
+Found that in average gas usage in 2009 and 2017 are really low compared to the other entries
+we want to find out if it is corrupt data or if there are expl for the low values
+Probably something whent wrong when splitting the data.
+
+5.
+Find out the relation between gas and electricity usage.
+Find out if there is a relation between yearly temperature and energy consumption
+For the latter KNMI data is required
+Find out if the energy usage differs in different areas of amsterdam
