@@ -54,4 +54,28 @@ def get_yearly_power_consumption(year):
     with open(save_dir + '/elk_per_aansluiting' + year + '.pickle', 'wb') as out:
         pl.dump(elk_usage, out, protocol=pl.HIGHEST_PROTOCOL)
 
-get_yearly_power_consumption('2018')
+# get_yearly_power_consumption('2018')
+
+
+def get_average_yearly_temperature():
+    # pandas loads the data as one column, so the processing needs 
+    # a different approach
+    temp_data = get_pandas('KNMI_20171231.csv')
+    data_out = {
+        2008: [], 2009: [], 2010: [], 2011: [], 2012: [], 2013: [], 
+        2014: [], 2015: [], 2016: [], 2017: []
+    }
+    norm = len(temp_data)
+    for index, row in temp_data.iterrows():
+        row_to_list = list(row)[0].split(',')
+        year = int(row_to_list[1][:4])
+        temperature = float(row_to_list[2].replace(" ", "")) / 10
+        data_out[year].append(temperature)
+    for key in data_out.keys():
+        # creative way to get average temp
+        data_out[key] = np.sum(np.array(data_out[key]) / len(data_out[key]))
+    print(index)
+    print(data_out)
+
+
+get_average_yearly_temperature()
