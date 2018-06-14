@@ -38,11 +38,17 @@ def save_dict_plot(dict_list, title, plot_names_list, axis_labels):
 def save_hist_plot(data_name, title, x_label):
     with open(data_path + '/' + data_name, 'rb') as fl:
         hist_data = pl.load(fl)
-
+    mean = hist_data.mean()
+    std = hist_data.std()
     plt.hist(hist_data, bins = 100)
     plt.title(title)
     plt.xlabel(x_label)
+    plt.axvline(mean, label = 'mean', color='k', linestyle='dashed', linewidth=1)
+    plt.axvline(mean - std, label = 'mean - 1 sigma' ,color='r', linestyle='dashed', linewidth=1)
+    plt.axvline(mean + std, label = 'mean + 1 sigma' ,color='b', linestyle='dashed', linewidth=1)
+    plt.legend()
     plt.show()
+    plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')
 
 save_hist_plot('elk_per_aansluiting2018.pickle', 'Electra per aansluiting 2018', 'Verbruik per aansluiting in KWh')
 save_hist_plot('gas_per_aansluiting2018.pickle', 'Gas verbruik per aansluiting 2018', 'Verbruik per aansluiting in m^3')
