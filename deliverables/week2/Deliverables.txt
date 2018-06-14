@@ -1,0 +1,17 @@
+Findings data EDA:
+    GEMIDDELD VERBUIK GAS EN ELECTRA IN AMSTERDAM 2009 - 2018:
+    - electricity and gas consumption over the years seem te be correlated in the verbruik vs jaar plot
+    it may be interesting to analyse this further and maybe scale electricity usage by the 'teruglever percentage'
+    - maybe there is a total increase in the 'teruglever percentage' which can account for the decrease
+    in elc usage
+    - The decrease in gas consumption may be correlated with the amount of solar cells used to heat water etc
+    or it may be that more energy effecient houses are built. The latter is also interesting to analyse.
+    - As well as the above, the power consumption can correlate with the average temperature of the years
+    - To check this we need to analyse the KNMI weather data
+    HISTOGRAMS:
+    - it seems that the power usage 'per aansluiting' is spread really wide
+    - both the elc and gas usage appear to have some logarithmic scaling
+    - when taking the log of the consumption 'per aansluiting' the electicity looks a lot like 
+    a normal distribution. This may imply that elc is log normal distributed
+    - the gas consumption 'per aansluiting' has the same properties, but with a slight skewness to the left
+    - We need to think if this is something of interest

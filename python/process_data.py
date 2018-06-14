@@ -27,9 +27,10 @@ def process_average_yearly_gas_elektra():
     with open(save_dir + '/average_yearly_elk_usage_2009_2018.pickle', 'wb') as out:
         pl.dump(electra, out, protocol=pl.HIGHEST_PROTOCOL)
 
-process_average_yearly_gas_elektra()
+# process_average_yearly_gas_elektra()
 
 # test
+'''
 with open(save_dir + '/average_yearly_elk_usage_2009_2018.pickle', 'rb') as fl:
     elk = pl.load(fl)
 
@@ -38,3 +39,19 @@ with open(save_dir + '/average_yearly_gas_usage_2009_2018.pickle', 'rb') as fl:
 
 for year in years:
     print(year, 'gas: ', gas[year], 'elect: ', elk[year])
+'''
+
+def get_yearly_power_consumption(year):
+    gas_pd = get_pandas('GAS' + '_' + year + '.csv') 
+    elk_pd = get_pandas('ELK' + '_' + year + '.csv')
+
+    gas_usage = np.array(gas_pd['SJV'] / gas_pd['Aantal Aansluitingen'])
+    elk_usage = np.array(elk_pd['SJV'] / elk_pd['Aantal Aansluitingen'])
+
+    with open(save_dir + '/gas_per_aansluiting' + year + '.pickle', 'wb') as out:
+        pl.dump(gas_usage, out, protocol=pl.HIGHEST_PROTOCOL)
+    
+    with open(save_dir + '/elk_per_aansluiting' + year + '.pickle', 'wb') as out:
+        pl.dump(elk_usage, out, protocol=pl.HIGHEST_PROTOCOL)
+
+get_yearly_power_consumption('2018')
