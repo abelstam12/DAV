@@ -76,6 +76,7 @@ def get_average_yearly_temperature():
         data_out[key] = np.sum(np.array(data_out[key]) / len(data_out[key]))
     print(index)
     print(data_out)
-
+    with open(save_dir + '/gemiddelde_temperatuur_2008_2017' + '.pickle', 'wb') as out:
+        pl.dump(data_out, out, protocol=pl.HIGHEST_PROTOCOL)
 
 get_average_yearly_temperature()
