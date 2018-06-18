@@ -1,5 +1,9 @@
 Abel:   - Git repository aangemaakt - 6/6/2018
         - csv utilty aangemaakt - 7/6/2018
+        - write some code to convert invalid numm strings to integers 12/6/2018
+        - Write deliverables week 1 - 12/6/2018
+        - Merge conflicts - 13/6/2018
+        - process data into deliverables week 2 14/6/2018 - 17/6/2018
         
 Lauren: - data van 2009 tot 2016 in csv bestand  - 					7/6/2018
         - data van 2017 en 2018 in csv bestand - 					11/6/2018
