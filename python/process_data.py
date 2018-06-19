@@ -47,7 +47,11 @@ def get_yearly_power_consumption(year):
 
     gas_usage = np.array(gas_pd['SJV'] )
     elk_usage = np.array(elk_pd['SJV'] )
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 7969e4d7ecbd3b68b4ec21cf10344489651e2ca5
     with open(save_dir + '/gas_per_aansluiting' + year + '.pickle', 'wb') as out:
         pl.dump(gas_usage, out, protocol=pl.HIGHEST_PROTOCOL)
     
