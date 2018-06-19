@@ -12,12 +12,12 @@ def process_average_yearly_gas_elektra():
     for year in years:
         # save description of gas usage
         gas_pd = get_pandas('GAS' + '_' + year + '.csv') 
-        gas_averaged_sjv = gas_pd['SJV'] / gas_pd['Aantal Aansluitingen']
+        gas_averaged_sjv = gas_pd['SJV']
         print(gas_averaged_sjv.mean(), gas_averaged_sjv.std())
         gas[int(year)] = gas_averaged_sjv.mean()
     
         el_pd = get_pandas('ELK' + '_' + year + '.csv') 
-        el_averaged_sjv = el_pd['SJV'] / el_pd['Aantal Aansluitingen']
+        el_averaged_sjv = el_pd['SJV']
         print(el_averaged_sjv.mean(), el_averaged_sjv.std())
         electra[int(year)] = el_averaged_sjv.mean()
 
@@ -45,8 +45,8 @@ def get_yearly_power_consumption(year):
     gas_pd = get_pandas('GAS' + '_' + year + '.csv') 
     elk_pd = get_pandas('ELK' + '_' + year + '.csv')
 
-    gas_usage = np.array(gas_pd['SJV'] / gas_pd['Aantal Aansluitingen'])
-    elk_usage = np.array(elk_pd['SJV'] / elk_pd['Aantal Aansluitingen'])
+    gas_usage = np.array(gas_pd['SJV'] )
+    elk_usage = np.array(elk_pd['SJV'] )
 
     with open(save_dir + '/gas_per_aansluiting' + year + '.pickle', 'wb') as out:
         pl.dump(gas_usage, out, protocol=pl.HIGHEST_PROTOCOL)
@@ -54,7 +54,7 @@ def get_yearly_power_consumption(year):
     with open(save_dir + '/elk_per_aansluiting' + year + '.pickle', 'wb') as out:
         pl.dump(elk_usage, out, protocol=pl.HIGHEST_PROTOCOL)
 
-# get_yearly_power_consumption('2018')
+get_yearly_power_consumption('2018')
 
 
 def get_average_yearly_temperature():
@@ -79,4 +79,5 @@ def get_average_yearly_temperature():
     with open(save_dir + '/gemiddelde_temperatuur_2008_2017' + '.pickle', 'wb') as out:
         pl.dump(data_out, out, protocol=pl.HIGHEST_PROTOCOL)
 
+process_average_yearly_gas_elektra()
 get_average_yearly_temperature()

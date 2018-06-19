@@ -5,10 +5,10 @@ import matplotlib.pylab as plt
 # load the data for the plots
 data_path = get_data_path('processed')
 
-'''
+
 with open(data_path + '/average_yearly_elk_usage_2009_2018.pickle', 'rb') as fl:
     elc_data = pl.load(fl)
-'''
+
 
 with open(data_path + '/average_yearly_gas_usage_2009_2018.pickle', 'rb') as fl:
     gas_data = pl.load(fl)
@@ -52,12 +52,12 @@ def save_hist_plot(data_name, title, x_label):
     plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')    
     plt.close()
 
-# save_hist_plot('elk_per_aansluiting2018.pickle', 'Electra per aansluiting 2018', 'Verbruik per aansluiting in KWh')
-# save_hist_plot('gas_per_aansluiting2018.pickle', 'Gas verbruik per aansluiting 2018', 'Verbruik per aansluiting in m^3')
+#save_hist_plot('elk_per_aansluiting2018.pickle', 'Electra per aansluiting 2018', 'Verbruik per aansluiting in KWh')
+#save_hist_plot('gas_per_aansluiting2018.pickle', 'Gas verbruik per aansluiting 2018', 'Verbruik per aansluiting in m^3')
 
 # logarithm of consumption
-# save_hist_plot('log_elk_per_aansluiting2018.pickle', 'Logaritme electra per aansluiting 2018', 'log(verbruik) per aansluiting in KWh')
-# save_hist_plot('log_gas_per_aansluiting2018.pickle', 'Logaritme gas verbruik per aansluiting 2018', 'log(verbruik) per aansluiting in m^3')
+#save_hist_plot('log_elk_per_aansluiting2018.pickle', 'Logaritme electra per aansluiting 2018', 'log(verbruik) per aansluiting in KWh')
+#save_hist_plot('log_gas_per_aansluiting2018.pickle', 'Logaritme gas verbruik per aansluiting 2018', 'log(verbruik) per aansluiting in m^3')
 
 def plot_two_scales(dict_one, dict_two, labels):
     plot_left = sorted(dict_one.items()) 
@@ -86,4 +86,4 @@ with open(data_path + '/gemiddelde_temperatuur_2008_2017.pickle', 'rb') as fl:
     temp_data = pl.load(fl)
 
 
-plot_two_scales(temp_data, gas_data, ['Jaarlijks gemiddelde temperatuur Schiphol graden Celcius','Jaarlijks gemiddeld gas verbruik Amsterdam in m^3'])
+#plot_two_scales(temp_data, gas_data, ['Jaarlijks gemiddelde temperatuur Schiphol graden Celcius','Jaarlijks gemiddeld gas verbruik Amsterdam in m^3'])
