@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>PCA - DAV</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Power consumption Amsterdam - Data analysis and visualisation">
+  <meta name="keywords" content="Power consumption Amsterdam - Data analysis and visualisation">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Resource style -->
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="icon" type="image/png" href="images/plug.png" />
+  <!-- Resource style -->
+  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <div class="main app form" id="main">
+      <!-- Main Section-->
+      <div class="hero-section">
+        <div class="container nopadding">
+          <div class="col-md-12">
+            <div class="hero-content text-center">
+              <h1 class="wow fadeInUp" data-wow-delay="0.1s">POWER CONSUMPTION AMSTERDAM</h1>
+              <p class="wow fadeInUp" data-wow-delay="0.2s"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet.. </p>
+              <a href="#" style="visibility: none; animation-name: fadeInUp;"></a><br><br> </div>
+          </div>
+        </div>
+      </div>
+      <!-- Split Feature1 Section -->
+      <div class="split-features">
+        <div class="col-md-6 nopadding">
+          <div class="split-image">
+            <canvas id="myChart" class="img-responsive wow fadeIn">
+                  <script>
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                      var chart = new Chart(ctx, {
+                          // The type of chart we want to create
+                          type: 'line',
+
+                          // The data for our dataset
+                          data: {
+                              labels: ["January", "February", "March", "April", "May", "June", "July"],
+                              datasets: [{
+                                  label: "Graph 1",
+                                  borderColor: 'rgb(111, 207, 252)',
+                                  data: [0, 5, 10, 2, 12, 17, 10],
+                              }]
+                          },
+
+                          // Configuration options go here
+                          options: {
+                            layout: {
+                              padding: {
+                                  left: 50,
+                                  right: 30,
+                                  top: 0,
+                                  bottom: 0
+                              }
+                          }
+                          }
+                      });
+                    </script>
+                  </canvas>
+          </div>
+        </div>
+        <div class="col-md-6 nopadding">
+          <div class="split-content">
+            <h1 class="wow fadeInUp">Graph 1</h1>
+            <p class="wow fadeInUp"> Pellentesque eget dolor gravida, tempus purus ac, ultricies mauris. Etiam est nisl, molestie sed egestas bibendum, varius eu diam. Suspendisse est metus, ultrices sit amet dolor in, rhoncus malesuada mi.</p>
+            <ul class="wow fadeInUp">
+              <li>Nulla ornare purus non consequat ultricies.</li>
+              <li>Etiam est nisl, molestie sed egestas bibendum</li>
+              <li>Aliquam vel euismod elit, sed suscipit est.</li>
+              <li>Curabitur egestas justo neque viverra vel. </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Split Feature2 Section -->
+      <div class="split-features2">
+        <div class="col-md-6 nopadding">
+          <div class="split-content second">
+            <h1 class="wow fadeInUp">Graph 2</h1>
+            <p class="wow fadeInUp"> Pellentesque eget dolor gravida, tempus purus ac, ultricies mauris. Etiam est nisl, molestie sed egestas bibendum, varius eu diam. Suspendisse est metus, ultrices sit amet dolor in, rhoncus malesuada mi.</p>
+            <ul class="wow fadeInUp">
+              <li>Nulla ornare purus non consequat ultricies.</li>
+              <li>Etiam est nisl, molestie sed egestas bibendum</li>
+              <li>Aliquam vel euismod elit, sed suscipit est.</li>
+              <li>Curabitur egestas justo neque viverra vel. </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 nopadding">
+          <div class="split-image"> 
+           <canvas id="myChart2" class="img-responsive wow fadeIn">
+                  <script>
+                    var ctx = document.getElementById('myChart2').getContext('2d');
+                      var chart = new Chart(ctx, {
+                          // The type of chart we want to create
+                          type: 'bar',
+
+                          // The data for our dataset
+                          data: {
+                              labels: ["January", "February", "March", "April", "May", "June", "July"],
+                              datasets: [{
+                                  label: "Graph 2",
+                                  backgroundColor: ['rgba(255, 99, 132)',
+                                                    'rgba(54, 162, 235)',
+                                                    'rgba(255, 206, 86)',
+                                                    'rgba(75, 192, 192)',
+                                                    'rgba(153, 102, 255)',
+                                                    'rgba(255, 159, 64)'],
+                                  borderColor:      ['rgba(255, 99, 132)',
+                                                    'rgba(54, 162, 235)',
+                                                    'rgba(255, 206, 86)',
+                                                    'rgba(75, 192, 192)',
+                                                    'rgba(153, 102, 255)',
+                                                    'rgba(255, 159, 64)'],
+                                  data: [0, 10, 5, 2, 20, 30, 10],
+                              }]
+                          },
+
+                          // Configuration options go here
+                          options: {
+                            layout: {
+                                padding: {
+                                    left: 30,
+                                    right: 50,
+                                    top: 0,
+                                    bottom: 0
+                                }
+                            }
+                          }
+                      });
+                    </script>
+                  </canvas>
+          </div>
+        </div>
+      </div>
+      <!-- Split Feature3 Section -->
+      <div class="split-features">
+        <div class="col-md-6 nopadding">
+          <div class="split-image">
+          <canvas id="myChart3" class="img-responsive wow fadeIn">
+                  <script>
+                    var ctx = document.getElementById('myChart3').getContext('2d');
+                      var chart = new Chart(ctx, {
+                          // The type of chart we want to create
+                          type: 'bubble',
+
+                          // The data for our dataset
+                          data: {
+                              labels: ["January", "February", "March", "April", "May", "June", "July"],
+                              datasets: [{
+                                  label: "Graph 3",
+                                  backgroundColor: 'rgb(111, 207, 252)',
+                                  borderColor: 'rgb(111, 207, 252)',
+                                  data: [0, 10, 5, 2, 20, 30, 5],
+                              }]
+                          },
+
+                          // Configuration options go here
+                          options: {
+                            layout: {
+                                padding: {
+                                    left: 50,
+                                    right: 30,
+                                    top: 0,
+                                    bottom: 0
+                                }
+                            }
+                          }
+                      });
+                    </script>
+                  </canvas>
+          </div>
+        </div>
+        <div class="col-md-6 nopadding">
+          <div class="split-content">
+            <h1 class="wow fadeInUp">Graph 3</h1>
+            <p class="wow fadeInUp"> Pellentesque eget dolor gravida, tempus purus ac, ultricies mauris. Etiam est nisl, molestie sed egestas bibendum, varius eu diam. Suspendisse est metus, ultrices sit amet dolor in, rhoncus malesuada mi.</p>
+            <ul class="wow fadeInUp">
+              <li>Nulla ornare purus non consequat ultricies.</li>
+              <li>Etiam est nisl, molestie sed egestas bibendum</li>
+              <li>Aliquam vel euismod elit, sed suscipit est.</li>
+              <li>Curabitur egestas justo neque viverra vel. </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <footer>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <ul class="legals">
+                  <li><a href="https://www.liander.nl/partners/datadiensten/open-data/data">Data Liander</a></li>
+                  <li><a href="http://www.uva.nl/home">UvA</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 credit">
+               
+              </div>
+            </div>
+          </div>
+        </footer>
+
+      <!-- Scroll To Top -->
+
+      <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a>
+
+      <!-- Scroll To Top Ends-->
+
+    </div>
+    <!-- Main Section -->
+  </div>
+  <!-- Wrapper-->
+
+  <!-- Jquery and Js Plugins -->
+  <script type="text/javascript" src="js/jquery-2.1.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/plugins.js"></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script type="text/javascript" src="js/custom.js"></script>
+  <script src="js/jquery.subscribe.js"></script>
+</body>
+
+</html>
