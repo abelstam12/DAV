@@ -12,14 +12,12 @@ def process_average_yearly_gas_elektra():
     for year in years:
         # save description of gas usage
         gas_pd = get_pandas('GAS' + '_' + year + '.csv') 
-        gas_averaged_sjv = gas_pd['SJV']
-        print(gas_averaged_sjv.mean(), gas_averaged_sjv.std())
-        gas[int(year)] = gas_averaged_sjv.mean()
+        gas_averaged_sjv = ( gas_pd['SJV'] * gas_pd['Aantal Aansluitingen'] ) / gas_pd['Aantal Aansluitingen'].sum()
+        gas[int(year)] = gas_averaged_sjv.sum()
     
         el_pd = get_pandas('ELK' + '_' + year + '.csv') 
-        el_averaged_sjv = el_pd['SJV']
-        print(el_averaged_sjv.mean(), el_averaged_sjv.std())
-        electra[int(year)] = el_averaged_sjv.mean()
+        el_averaged_sjv = (el_pd['SJV'] * el_pd['Aantal Aansluitingen']) / el_pd['Aantal Aansluitingen'].sum()
+        electra[int(year)] = el_averaged_sjv.sum()
 
     with open(save_dir + '/average_yearly_gas_usage_2009_2018.pickle', 'wb') as out:
         pl.dump(gas, out, protocol=pl.HIGHEST_PROTOCOL)
@@ -46,13 +44,23 @@ def get_yearly_power_consumption(year):
     elk_pd = get_pandas('ELK' + '_' + year + '.csv')
 
     gas_usage = np.array(gas_pd['SJV'] )
+    gas_aansluitingen = np.array(gas_pd['Aantal Aansluitingen'] )
     elk_usage = np.array(elk_pd['SJV'] )
+    elk_aansluitingen = np.array(elk_pd['Aantal Aansluitingen'] )
 
+    all_sjv_gas = []
+    all_sjv_elk = []
+    for i in range(len(gas_usage)):
+        all_sjv_gas.extend([gas_usage[i]] * gas_aansluitingen[i])
+    for i in range(len(elk_usage)):
+        all_sjv_elk.extend([elk_usage[i]] * elk_aansluitingen[i])
+    print(len(all_sjv_gas), len(all_sjv_elk))
     with open(save_dir + '/gas_per_aansluiting' + year + '.pickle', 'wb') as out:
         pl.dump(gas_usage, out, protocol=pl.HIGHEST_PROTOCOL)
     
     with open(save_dir + '/elk_per_aansluiting' + year + '.pickle', 'wb') as out:
         pl.dump(elk_usage, out, protocol=pl.HIGHEST_PROTOCOL)
+
 
 get_yearly_power_consumption('2018')
 

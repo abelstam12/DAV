@@ -34,8 +34,30 @@ def save_dict_plot(dict_list, title, plot_names_list, axis_labels):
     plt.title(title)
     plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')
 
+def save_dict_bar_plot(dict_list, title, plot_names_list, axis_labels):
+    '''
+    plots dicts in one plot, dict_list can have multiple dict objects.
+    The keys of the dict are plotted on the x and the values on the y axis.
+    Provide title and the names of the plots.
+    '''
+    for i in range(len(dict_list)):
+        lists = sorted(dict_list[i].items()) # sorted by key, return a list of tuples
+
+        x, y = zip(*lists) # unpack a list of pairs into two tuples
+
+        plt.bar(x, y, label = plot_names_list[i])
+    plt.xlabel(axis_labels[0])
+    plt.ylabel(axis_labels[1])
+    plt.legend()
+    plt.title(title)
+    plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')
+    plt.close()
+
 # example usage
-# save_dict_plot([elc_data, gas_data], 'Gemiddeld verbuik van gas en electra in amsterdam per jaar', ['Electra in KWh', 'Gas in m^3'], ['Jaar', 'Verbruik'])
+# save_dict_bar_plot([elc_data, gas_data], 'Gemiddeld verbuik van gas en electra in amsterdam per jaar bar plot', ['Electra in KWh', 'Gas in m^3'], ['Jaar', 'Verbruik'])
+# save_dict_bar_plot([gas_data], 'Gemiddeld verbuik van gas in amsterdam per jaar bar plot', ['Gas in m^3'], ['Jaar', 'Verbruik'])
+# save_dict_bar_plot([elc_data], 'Gemiddeld verbuik van electra in amsterdam per jaar bar plot', ['Electra in KWh.'], ['Jaar', 'Verbruik'])
+
 
 def save_hist_plot(data_name, title, x_label):
     with open(data_path + '/' + data_name, 'rb') as fl:
@@ -52,12 +74,12 @@ def save_hist_plot(data_name, title, x_label):
     plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')    
     plt.close()
 
-#save_hist_plot('elk_per_aansluiting2018.pickle', 'Electra per aansluiting 2018', 'Verbruik per aansluiting in KWh')
-#save_hist_plot('gas_per_aansluiting2018.pickle', 'Gas verbruik per aansluiting 2018', 'Verbruik per aansluiting in m^3')
+# save_hist_plot('elk_per_aansluiting2018.pickle', 'Electra per aansluiting 2018', 'Verbruik per aansluiting in KWh')
+# save_hist_plot('gas_per_aansluiting2018.pickle', 'Gas verbruik per aansluiting 2018', 'Verbruik per aansluiting in m^3')
 
 # logarithm of consumption
-#save_hist_plot('log_elk_per_aansluiting2018.pickle', 'Logaritme electra per aansluiting 2018', 'log(verbruik) per aansluiting in KWh')
-#save_hist_plot('log_gas_per_aansluiting2018.pickle', 'Logaritme gas verbruik per aansluiting 2018', 'log(verbruik) per aansluiting in m^3')
+# save_hist_plot('log_elk_per_aansluiting2018.pickle', 'Logaritme electra per aansluiting 2018', 'log(verbruik) per aansluiting in KWh')
+# save_hist_plot('log_gas_per_aansluiting2018.pickle', 'Logaritme gas verbruik per aansluiting 2018', 'log(verbruik) per aansluiting in m^3')
 
 def plot_two_scales(dict_one, dict_two, labels):
     plot_left = sorted(dict_one.items()) 
@@ -86,4 +108,4 @@ with open(data_path + '/gemiddelde_temperatuur_2008_2017.pickle', 'rb') as fl:
     temp_data = pl.load(fl)
 
 
-#plot_two_scales(temp_data, gas_data, ['Jaarlijks gemiddelde temperatuur Schiphol graden Celcius','Jaarlijks gemiddeld gas verbruik Amsterdam in m^3'])
+plot_two_scales(temp_data, gas_data, ['Jaarlijks gemiddelde temperatuur Schiphol graden Celcius','Jaarlijks gemiddeld gas verbruik Amsterdam in m^3'])
