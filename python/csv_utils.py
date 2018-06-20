@@ -21,10 +21,10 @@ def get_clean_data(data):
     '''
     float_array = np.zeros(len(data))
     index = 0
-    for element in data:
-        if (type(element) == str):
+    for fl in data:
+        if (type(fl) == str):
             # if its a string
-            fl = element.replace(',', '.')
+            fl = fl.replace(',', '.')
         try:
             fl = float(fl)
         except:
