@@ -61,8 +61,22 @@ def get_yearly_power_consumption(year):
     with open(save_dir + '/elk_per_aansluiting' + year + '.pickle', 'wb') as out:
         pl.dump(elk_usage, out, protocol=pl.HIGHEST_PROTOCOL)
 
+def get_scaled_elec_usage():
+    electra = {}
+    for year in years:
+        el_pd = get_pandas('ELK' + '_' + year + '.csv') 
+        scaling = get_clean_data(list(el_pd['%Leveringsrichting']))
+        print(len(list(el_pd['%Leveringsrichting'])), scaling.shape, year)
+        el_averaged_sjv_scaled = np.array(el_pd['SJV'] * el_pd['Aantal Aansluitingen'] ) / (scaling / 100.)
+        el_averaged_sjv_scaled = (el_averaged_sjv_scaled) / el_pd['Aantal Aansluitingen'].sum()
+        electra[int(year)] = el_averaged_sjv_scaled.sum()
 
-get_yearly_power_consumption('2018')
+    with open(save_dir + '/scaled_average_yearly_elk_usage_2009_2018.pickle', 'wb') as out:
+        pl.dump(electra, out, protocol=pl.HIGHEST_PROTOCOL)
+
+# get_scaled_elec_usage()
+
+# get_yearly_power_consumption('2018')
 
 
 def get_average_yearly_temperature():
@@ -87,5 +101,5 @@ def get_average_yearly_temperature():
     with open(save_dir + '/gemiddelde_temperatuur_2008_2017' + '.pickle', 'wb') as out:
         pl.dump(data_out, out, protocol=pl.HIGHEST_PROTOCOL)
 
-process_average_yearly_gas_elektra()
-get_average_yearly_temperature()
+# process_average_yearly_gas_elektra()
+# get_average_yearly_temperature()
