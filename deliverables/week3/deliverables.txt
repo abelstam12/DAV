@@ -1,0 +1,36 @@
+Linear regression within the dataset:
+
+1.
+    sjv = c1 * Aantal_aansluitingen + c2 * POSTCODE_VAN:
+    Coefficients:
+    [[0.11735776 0.1230185 ]]
+    Mean squared error: 54185102.24
+    Variance score: -0.43
+    not very promissing..
+2. 
+    SJV = c1 * Aantal_aansluitingen
+    Coefficients:
+    [[-2.41296324]]
+    Mean squared error: 53081252.98
+    Variance score: -0.40
+    :(
+3. 
+    SJV_GAS = c1 * Aantal_aansluitingen + c2 * POSTCODE_VAN:
+    Coefficients:
+    [[ 0.14165485 -0.0686829 ]]
+    Mean squared error: 11613129.08
+    Variance score: -0.36
+    :(
+4. 
+    SJV_GAS = c1 * Aantal_aansluitingen
+    Coefficients:
+    [[-3.85388348]]
+    Mean squared error: 11385563.73
+    Variance score: -0.34
+
+Clearly something smarter is needed to make a nice linear regression. A profile was made by Lauren
+specifying consumption for postal codes. Some regions show peaks. We will catagorize the 
+postal codes by 'centrum', 'industie', 'nieuwbouw' and OUD_ZUID, since we suspect the homes there are mostly very large and old, and do a regression with the latter as describing variables.
+(0 if not in catagory and 1 if in catagory). We suspect gas usage is most interesting, since its use is mostly dependent
+on the building.
+https://www.amsterdam.nl/ondernemen/bedrijfsruimte/bedrijventerreinen/
