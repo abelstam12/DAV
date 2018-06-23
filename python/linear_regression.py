@@ -65,4 +65,6 @@ def lin_regres(explanetory, to_explain):
 # plot_x_y(get_numeric_postal(elk_pd['POSTCODE_VAN']), elk_pd['SJV'], 'Verbruik gas tegen postcode', ['Postcode','Verbruik in m^3'])
 # plot_x_y(elk_pd['Aantal Aansluitingen'], elk_pd['SJV'], 'Verbruik_gas_tegen_het_aantal_aansluitingen', ['Aantal aansluitingen', 'Verbruik m^3'])
 
-lin_regres(catagorized_postal(gas_pd["POSTCODE_VAN"]), gas_pd["SJV"])
+post = catagorized_postal(elk_pd["POSTCODE_VAN"])
+exp = np.array([post[1]])
+lin_regres(np.array([post[1]]), elk_pd["SJV"])

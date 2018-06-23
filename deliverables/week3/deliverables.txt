@@ -34,3 +34,38 @@ postal codes by 'centrum', 'industie', 'nieuwbouw' and OUD_ZUID, since we suspec
 (0 if not in catagory and 1 if in catagory). We suspect gas usage is most interesting, since its use is mostly dependent
 on the building.
 https://www.amsterdam.nl/ondernemen/bedrijfsruimte/bedrijventerreinen/
+
+5. 
+    SJV_GAS = c1 * cen + c2 * in + c3 * oud + c4 * nieuw
+    Coefficients:
+    [[  748.96555179 -1075.57331416   589.19637773    -3.2472999 ]]
+    Mean squared error: 11558424.25
+    Variance score: -0.36
+
+6. 
+    SJV_GAS = c1 * cen + c2 * in + c3 * oud + c4 * nieuw + c5 * Aantal_aansluitingen
+    Coefficients:
+    [[-1.4564027  -1.73630462 -0.08735558 -0.28334821 -1.2722694 ]]
+    Mean squared error: 11738705.60
+    Variance score: -0.38
+
+7.
+    SJV_ELK = c1 * cen + c2 * in + c3 * oud + c4 * nieuw + c5 * Aantal_aansluitingen
+    Coefficients:
+    [[-0.7540239  -0.16940007 -4.99098542 -0.34900272 -1.231022  ]]
+    Mean squared error: 52039762.21
+    Variance score: -0.38
+
+8. 
+    SJV_ELK = c1 * cen + c2 * in + c3 * oud + c4 * nieuw + c5 * Aantal_aansluitingen
+    Coefficients:
+    [[-0.7540239  -0.16940007 -4.99098542 -0.34900272 -1.231022  ]]
+    Mean squared error: 52039762.21
+    Variance score: -0.38
+
+Maybe only regress on industry vs not industy..
+9.
+    SJV_ELK = c1 * indus + const
+    [[8580.40830839]]
+    Mean squared error: 51848635.68
+    Variance score: -0.37
