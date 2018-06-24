@@ -37,10 +37,30 @@ https://www.amsterdam.nl/ondernemen/bedrijfsruimte/bedrijventerreinen/
 
 5. 
     SJV_GAS = c1 * cen + c2 * in + c3 * oud + c4 * nieuw
-    Coefficients:
-    [[  748.96555179 -1075.57331416   589.19637773    -3.2472999 ]]
-    Mean squared error: 11558424.25
-    Variance score: -0.36
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.001
+Model:                            OLS   Adj. R-squared:                  0.001
+Method:                 Least Squares   F-statistic:                     4.382
+Date:                Sun, 24 Jun 2018   Prob (F-statistic):            0.00434
+Time:                        14:01:02   Log-Likelihood:            -1.2844e+05
+No. Observations:               15415   AIC:                         2.569e+05
+Df Residuals:                   15411   BIC:                         2.569e+05
+Df Model:                           3
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const       1289.7877      8.609    149.814      0.000    1272.913    1306.663
+x1            52.5189    449.720      0.117      0.907    -828.986     934.023
+x2          -119.4000    635.890     -0.188      0.851   -1365.819    1127.019
+x3           158.8389    450.052      0.353      0.724    -723.315    1040.993
+==============================================================================
+Omnibus:                    16884.571   Durbin-Watson:                   1.046
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):          3050851.545
+Skew:                           5.311   Prob(JB):                         0.00
+Kurtosis:                      71.096   Cond. No.                         98.8
+==============================================================================
 
 6. 
     SJV_GAS = c1 * cen + c2 * in + c3 * oud + c4 * nieuw + c5 * Aantal_aansluitingen
@@ -57,11 +77,31 @@ https://www.amsterdam.nl/ondernemen/bedrijfsruimte/bedrijventerreinen/
     Variance score: -0.38
 
 8. 
-    SJV_ELK = c1 * cen + c2 * in + c3 * oud + c4 * nieuw + c5 * Aantal_aansluitingen
-    Coefficients:
-    [[-0.7540239  -0.16940007 -4.99098542 -0.34900272 -1.231022  ]]
-    Mean squared error: 52039762.21
-    Variance score: -0.38
+    SJV_ELK = c1 * cen + c2 * in + c3 * oud + c4 * nieuw + c
+                            OLS Regression Results
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.007
+Model:                            OLS   Adj. R-squared:                  0.006
+Method:                 Least Squares   F-statistic:                     37.49
+Date:                Sun, 24 Jun 2018   Prob (F-statistic):           3.87e-24
+Time:                        13:47:05   Log-Likelihood:            -1.5986e+05
+No. Observations:               16828   AIC:                         3.197e+05
+Df Residuals:                   16824   BIC:                         3.198e+05
+Df Model:                           3
+Covariance Type:            nonrobust
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const       3294.9443     26.444    124.599      0.000    3243.110    3346.778
+x1          1217.5585   1320.079      0.922      0.356   -1369.935    3805.052
+x2          -311.5000   1865.518     -0.167      0.867   -3968.110    3345.110
+x3           -70.9429   1319.471     -0.054      0.957   -2657.244    2515.358
+==============================================================================
+Omnibus:                    16056.112   Durbin-Watson:                   1.027
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           790203.361
+Skew:                           4.655   Prob(JB):                         0.00
+Kurtosis:                      35.254   Cond. No.                         94.1
+==============================================================================
 
 Maybe only regress on industry vs not industy..
 9.

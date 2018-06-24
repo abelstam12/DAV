@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn import datasets, linear_model
 from sklearn.metrics import mean_squared_error, r2_score
 from catagorize_postalcode import *
+import statsmodels.api as sm
 
 # load electricity and gas data
 gas_pd = get_pandas('GAS_2018.csv') 
@@ -40,7 +41,11 @@ def lin_regres(explanetory, to_explain):
     # Split the targets into training/testing sets
     diabetes_y_train = diabetes_y[:-20]
     diabetes_y_test = diabetes_y[-20:]
-
+    X2 = sm.add_constant(diabetes_X_train)
+    est = sm.OLS(diabetes_y_train, X2)
+    est2 = est.fit()
+    print(est2.summary())
+    '''
     # Create linear regression object
     regr = linear_model.LinearRegression()
 
@@ -57,7 +62,7 @@ def lin_regres(explanetory, to_explain):
         % mean_squared_error(diabetes_y_test, diabetes_y_pred))
     # Explained variance score: 1 is perfect prediction
     print('Variance score: %.2f' % r2_score(diabetes_y_test, diabetes_y_pred))
-
+    '''
 
 
 # plot_x_y(get_numeric_postal(gas_pd['POSTCODE_VAN']), gas_pd['SJV'], 'Verbruik gas tegen postcode', ['Postcode','Verbruik in m^3'])
@@ -65,6 +70,6 @@ def lin_regres(explanetory, to_explain):
 # plot_x_y(get_numeric_postal(elk_pd['POSTCODE_VAN']), elk_pd['SJV'], 'Verbruik gas tegen postcode', ['Postcode','Verbruik in m^3'])
 # plot_x_y(elk_pd['Aantal Aansluitingen'], elk_pd['SJV'], 'Verbruik_gas_tegen_het_aantal_aansluitingen', ['Aantal aansluitingen', 'Verbruik m^3'])
 
-post = catagorized_postal(elk_pd["POSTCODE_VAN"])
-exp = np.array([post[1]])
-lin_regres(np.array([post[1]]), elk_pd["SJV"])
+post = catagorized_postal(gas_pd["POSTCODE_VAN"])
+exp = np.array( [post[0], post[2], post[3]] )
+lin_regres(exp, gas_pd["SJV"])
