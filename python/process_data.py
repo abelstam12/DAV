@@ -7,10 +7,13 @@ save_dir = get_data_path('processed')
 # years to analyse
 years = ['2009','2010','2011','2012','2013','2014','2015','2016','2017','2018']
 def process_average_yearly_gas_elektra():
+    '''
+    Get yealy scaled averages and save the data in the processed data repos.
+    '''
     gas = {}
     electra = {}
     for year in years:
-        # save description of gas usage
+        # get and save all the data for each year.
         gas_pd = get_pandas('GAS' + '_' + year + '.csv') 
         gas_averaged_sjv = ( gas_pd['SJV'] * gas_pd['Aantal Aansluitingen'] ) / gas_pd['Aantal Aansluitingen'].sum()
         gas[int(year)] = gas_averaged_sjv.sum()
@@ -25,19 +28,7 @@ def process_average_yearly_gas_elektra():
     with open(save_dir + '/average_yearly_elk_usage_2009_2018.pickle', 'wb') as out:
         pl.dump(electra, out, protocol=pl.HIGHEST_PROTOCOL)
 
-# process_average_yearly_gas_elektra()
 
-# test
-'''
-with open(save_dir + '/average_yearly_elk_usage_2009_2018.pickle', 'rb') as fl:
-    elk = pl.load(fl)
-
-with open(save_dir + '/average_yearly_gas_usage_2009_2018.pickle', 'rb') as fl:
-    gas = pl.load(fl)
-
-for year in years:
-    print(year, 'gas: ', gas[year], 'elect: ', elk[year])
-'''
 
 def get_yearly_power_consumption(year):
     gas_pd = get_pandas('GAS' + '_' + year + '.csv') 
@@ -74,9 +65,7 @@ def get_scaled_elec_usage():
     with open(save_dir + '/scaled_average_yearly_elk_usage_2009_2018.pickle', 'wb') as out:
         pl.dump(electra, out, protocol=pl.HIGHEST_PROTOCOL)
 
-# get_scaled_elec_usage()
 
-# get_yearly_power_consumption('2018')
 
 
 def get_average_yearly_temperature():
@@ -101,5 +90,9 @@ def get_average_yearly_temperature():
     with open(save_dir + '/gemiddelde_temperatuur_2008_2017' + '.pickle', 'wb') as out:
         pl.dump(data_out, out, protocol=pl.HIGHEST_PROTOCOL)
 
+# uncomment to process
+# process_average_yearly_gas_elektra()
+# get_scaled_elec_usage()
+# get_yearly_power_consumption('2018')
 # process_average_yearly_gas_elektra()
 # get_average_yearly_temperature()

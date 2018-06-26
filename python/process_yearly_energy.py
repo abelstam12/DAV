@@ -55,7 +55,7 @@ def save_dict_bar_plot(dict_list, title, plot_names_list, axis_labels):
     plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')
     plt.close()
 
-# example usage
+# example usage (uncomment to run)
 # save_dict_bar_plot([scaled_elc_data, gas_data], 'Gemiddeld verbuik van gas en electra in amsterdam per jaar bar plot', ['Electra in KWh', 'Gas in m^3'], ['Jaar', 'Verbruik'])
 # save_dict_bar_plot([gas_data], 'Gemiddeld verbuik van gas in amsterdam per jaar bar plot', ['Gas in m^3'], ['Jaar', 'Verbruik'])
 # save_dict_bar_plot([scaled_elc_data], 'Gemiddeld verbuik van electra in amsterdam per jaar bar plot', ['Electra in KWh.'], ['Jaar', 'Verbruik'])
@@ -77,6 +77,7 @@ def save_hist_plot(data_name, title, x_label):
     plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')    
     plt.close()
 
+# uncomment to run
 # save_hist_plot('elk_per_aansluiting2018.pickle', 'Electra geleverd per aansluiting 2018', 'Geleverde electra per aansluiting in KWh')
 # save_hist_plot('gas_per_aansluiting2018.pickle', 'Gas verbruik per aansluiting 2018', 'Verbruik per aansluiting in m^3')
 
@@ -117,6 +118,8 @@ def plot_difference(dict_one, dict_two, title, plot_names, axis):
 with open(data_path + '/gemiddelde_temperatuur_2008_2017.pickle', 'rb') as fl:
     temp_data = pl.load(fl)
 
-plot_difference(scaled_elc_data, elc_data, "Gemiddelde Opgewekte energy per jaar", ["Verschil electra totaal min geleverd"], ["Jaar", "Opgewekte electra KWh"])
+
+# uncomment to run
+# plot_difference(scaled_elc_data, elc_data, "Gemiddelde Opgewekte energy per jaar", ["Verschil electra totaal min geleverd"], ["Jaar", "Opgewekte electra KWh"])
 
 # plot_two_scales(temp_data, gas_data, ['Jaarlijks gemiddelde temperatuur Schiphol graden Celcius','Jaarlijks gemiddeld gas verbruik Amsterdam in m^3'])
