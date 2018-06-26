@@ -16,6 +16,7 @@ def plot_x_y(plot_x, plot_y, title, axis):
     plt.title(title)
     plt.xlabel(axis[0])
     plt.ylabel(axis[1])
+    # uncomment to savefig
     #plt.savefig(save_location + 'week2/' + title, bbox_inches='tight')
     plt.show()
     return

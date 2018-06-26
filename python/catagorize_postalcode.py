@@ -7,6 +7,10 @@ OUD_ZUID = [75, 71, 77]
 NIEUWBOUW = [67, 69, 60, 64, 65, 63, 62, 56, 57, 56, 55]
 
 def catagorized_postal(postal_array):
+    '''
+    If postalcode matches a catagory, set this_catagory[i] 
+    equal to one. This can be used to regress on catagories.
+    '''
     cen = np.zeros(len(postal_array))
     indus = np.zeros(len(postal_array))
     oud = np.zeros(len(postal_array))
@@ -32,8 +36,6 @@ def catagorized_postal(postal_array):
     result = np.array([cen, indus, oud, nieuw])
     print(result)
     return result
-
-
 
 
 

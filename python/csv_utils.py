@@ -15,9 +15,10 @@ def get_deliverables_path():
 
 def get_clean_data(data):
     '''
-    Takes list with strings as argument and tries to get the numeric value of
-    the string. If there is no numerical representation, disregard entry.
-    Note this can only be used to obtain clean numerical data.
+    Takes list with strings/numeric values as argument and tries to get 
+    the numeric value of the string/num value. If there is no numerical 
+    representation, disregard entry.
+    Note this can only be used to obtain clean numerical stings.
     '''
     float_array = np.zeros(len(data))
     index = 0
@@ -28,7 +29,8 @@ def get_clean_data(data):
         try:
             fl = float(fl)
         except:
-            # here the string cannot be formatted to a float so the entrie is ignored
+            # here the string cannot be formatted 
+            # to a float so the entrie is ignored
             float_array = float_array[:len(float_array) -2]
             continue
         float_array[index] = fl
