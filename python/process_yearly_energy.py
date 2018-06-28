@@ -120,6 +120,6 @@ with open(data_path + '/gemiddelde_temperatuur_2008_2017.pickle', 'rb') as fl:
 
 
 # uncomment to run
-# plot_difference(scaled_elc_data, elc_data, "Gemiddelde Opgewekte energy per jaar", ["Verschil electra totaal min geleverd"], ["Jaar", "Opgewekte electra KWh"])
+plot_difference(scaled_elc_data, elc_data, "Gemiddelde Opgewekte energie per jaar", ["Verschil electra totaal min geleverd"], ["Jaar", "Opgewekte electra KWh"])
 
 # plot_two_scales(temp_data, gas_data, ['Jaarlijks gemiddelde temperatuur Schiphol graden Celcius','Jaarlijks gemiddeld gas verbruik Amsterdam in m^3'])
