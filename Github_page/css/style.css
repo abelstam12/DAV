@@ -1455,6 +1455,9 @@ input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placehold
 .split-image {
 	margin: 0 auto;
   padding: 20px;
+  color: #bf073e;
+  font-size: 20px;
+  font-style: bold;
 }
 
 .split-content {
@@ -1516,8 +1519,7 @@ input[type="text"]::-webkit-input-placeholder, textarea::-webkit-input-placehold
 
 
 .review-single img {
-  width:80px;
-	height:80px;
+  width: 100%;
 }
 
 .review-text h3 {
@@ -2148,8 +2150,8 @@ ul.legals li:last-child::after {
 	}
 
 	.split-content {
-		padding: 70px 350px 50px 10px;
-		text-align: left;
+	  padding: 70px 350px 50px 10px;
+	  text-align: left;
 	}
 	
 	.second {
@@ -2277,8 +2279,3 @@ padding: 70px 10px 50px 350px;
 	 }
 
  }
-
-
-/*---------------------------------------------------
-------- Media Queries for Split Layout Ends ---------
----------------------------------------------------*/
