@@ -17,6 +17,24 @@ for i in range(len(post)):
     tsne_data[i] = np.array([sjv[i], aantalaan[i], perc[i], post[i]])
 
 X = np.array(tsne_data)
+
+
 X_embedded = TSNE(n_components=2).fit_transform(X)
-plt.plot(X_embedded[:,0], X_embedded[:,1], 'o')
+
+c = ['red', 'green', 'blue', 'yellow', 'purple']
+colors = []
+for i in range(len(X)):
+    if i < len(X) / 5:
+        colors.append('red')
+    if i < 2 * len(X) / 5:
+        colors.append('green')
+    if i < 3 * len(X) / 5:
+        colors.append('blue')
+    if i < 4 * len(X) / 5:
+        colors.append('yellow')
+    if i < len(X):
+        colors.append('purple')
+    colors.append
+
+plt.scatter(X_embedded[:,0], X_embedded[:,1], c = colors)
 plt.show()
