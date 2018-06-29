@@ -6,6 +6,7 @@ import matplotlib.pylab as plt
 data_path = get_data_path('processed')
 
 
+
 with open(data_path + '/average_yearly_elk_usage_2009_2018.pickle', 'rb') as fl:
     elc_data = pl.load(fl)
 
